@@ -21,16 +21,18 @@ const Stats = () => {
   ];
 
   return (
-    <section className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-3 gap-8">
+    <section className="py-24 relative">
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/20 to-background" />
+      
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {stats.map((stat, index) => (
-            <Card key={index} className="text-center hover:shadow-lg transition-all duration-300 hover:scale-105 border-primary/10">
-              <CardContent className="p-8">
-                <div className="text-4xl md:text-5xl font-bold text-primary mb-2">
+            <Card key={index} className="text-center hover:scale-105 transition-all duration-500 card-shadow bg-card/50 backdrop-blur-sm border-white/10 rounded-3xl group">
+              <CardContent className="p-10">
+                <div className="text-5xl md:text-6xl font-bold accent-gradient mb-4 group-hover:scale-110 transition-transform">
                   {stat.value}
                 </div>
-                <h3 className="text-xl font-semibold mb-3 text-foreground">
+                <h3 className="text-xl font-semibold mb-4 text-foreground">
                   {stat.label}
                 </h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">

@@ -23,29 +23,31 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-foreground">
+    <section id="projects" className="py-24 relative">
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/10 to-background" />
+      
+      <div className="container mx-auto px-4 relative z-10">
+        <h2 className="text-5xl md:text-6xl font-bold text-center mb-20 text-gradient">
           Featured Projects
         </h2>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {projects.map((project, index) => (
-            <Card key={index} className="hover:shadow-xl transition-all duration-300 hover:scale-105 border-primary/10 group">
-              <CardHeader>
-                <CardTitle className="text-xl text-foreground group-hover:text-primary transition-colors">
+            <Card key={index} className="hover:scale-105 transition-all duration-500 card-shadow bg-card/50 backdrop-blur-sm border-white/10 rounded-3xl group">
+              <CardHeader className="p-8">
+                <CardTitle className="text-2xl text-foreground group-hover:text-primary transition-colors">
                   {project.title}
                 </CardTitle>
               </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground mb-4 leading-relaxed">
+              <CardContent className="p-8 pt-0">
+                <p className="text-muted-foreground mb-6 leading-relaxed font-light">
                   {project.description}
                 </p>
-                <div className="flex flex-wrap gap-2 mb-4">
+                <div className="flex flex-wrap gap-3">
                   {project.tags.map((tag, tagIndex) => (
                     <span 
                       key={tagIndex}
-                      className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full"
+                      className="px-4 py-2 bg-primary/20 text-primary text-sm rounded-full border border-primary/30 font-medium"
                     >
                       {tag}
                     </span>
@@ -56,14 +58,14 @@ const Projects = () => {
           ))}
         </div>
         
-        <div className="text-center mt-12">
+        <div className="text-center">
           <Button 
             variant="outline" 
             size="lg"
-            className="hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+            className="hover:bg-primary hover:text-primary-foreground transition-all duration-300 border-white/20 bg-transparent text-foreground px-8 py-4 rounded-2xl font-semibold glow-button"
             onClick={() => window.open('https://github.com/Anish-2024', '_blank')}
           >
-            <Github className="mr-2 h-5 w-5" />
+            <Github className="mr-3 h-5 w-5" />
             View More on GitHub
           </Button>
         </div>
