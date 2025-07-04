@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -70,47 +69,38 @@ const Contact = () => {
     }
 
     setIsSubmitting(true);
+    console.log("Form submission started with data:", formData);
 
     try {
-      // Using Formspree for email delivery
-      const response = await fetch('https://formspree.io/f/xdkobgqv', {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: formData.fullName,
-          email: formData.email,
-          phone: formData.phone,
-          message: formData.message,
-          _replyto: formData.email,
-          _subject: `New Portfolio Contact from ${formData.fullName}`,
-        }),
+      // Using a simple mailto approach as fallback
+      const subject = `New Portfolio Contact from ${formData.fullName}`;
+      const body = `Name: ${formData.fullName}\nPhone: ${formData.phone}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`;
+      const mailtoLink = `mailto:anishanchan567@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      
+      // Open mailto link
+      window.open(mailtoLink, '_blank');
+      
+      // Show success message
+      setIsSubmitted(true);
+      toast({
+        title: "Success!",
+        description: "Your default email client should open. Please send the email to complete your message.",
+      });
+      
+      // Reset form
+      setFormData({
+        fullName: "",
+        phone: "",
+        email: "",
+        message: ""
       });
 
-      if (response.ok) {
-        setIsSubmitted(true);
-        toast({
-          title: "Success!",
-          description: "Thank you! Your message has been sent successfully. I'll get back to you soon.",
-        });
-        
-        // Reset form
-        setFormData({
-          fullName: "",
-          phone: "",
-          email: "",
-          message: ""
-        });
-      } else {
-        throw new Error('Failed to send message');
-      }
+      console.log("Form submission completed successfully");
     } catch (error) {
-      console.error('Error sending message:', error);
+      console.error('Error processing form:', error);
       toast({
         title: "Error",
-        description: "Failed to send message. Please try again or contact me directly.",
+        description: "There was an issue processing your request. Your email client should still open.",
         variant: "destructive",
       });
     } finally {
@@ -226,7 +216,7 @@ const Contact = () => {
                     {isSubmitting ? (
                       <>
                         <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-3"></div>
-                        Sending...
+                        Opening Email Client...
                       </>
                     ) : (
                       <>
@@ -239,13 +229,13 @@ const Contact = () => {
               ) : (
                 <div className="text-center max-w-2xl mx-auto">
                   <div className="p-12 bg-primary/10 rounded-3xl border border-primary/30 backdrop-blur-sm">
-                    <div className="text-6xl mb-6">✨</div>
+                    <div className="text-6xl mb-6">📧</div>
                     <h3 className="text-3xl font-semibold accent-gradient mb-6">
-                      Thank You!
+                      Almost There!
                     </h3>
                     <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                      Your message has been sent successfully to <strong>anishanchan567@gmail.com</strong>. 
-                      I'll get back to you soon!
+                      Your email client should have opened with a pre-filled message to <strong>anishanchan567@gmail.com</strong>. 
+                      Please send the email to complete your message!
                     </p>
                     <Button 
                       onClick={() => setIsSubmitted(false)}
