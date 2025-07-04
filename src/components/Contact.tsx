@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -6,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Github, Linkedin, Send, Mail, Phone, User } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -72,19 +74,30 @@ const Contact = () => {
     console.log("Form submission started with data:", formData);
 
     try {
-      // Using a simple mailto approach as fallback
-      const subject = `New Portfolio Contact from ${formData.fullName}`;
-      const body = `Name: ${formData.fullName}\nPhone: ${formData.phone}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`;
-      const mailtoLink = `mailto:anishanchan567@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      
-      // Open mailto link
-      window.open(mailtoLink, '_blank');
+      // EmailJS configuration
+      const templateParams = {
+        from_name: formData.fullName,
+        from_email: formData.email,
+        phone: formData.phone,
+        message: formData.message,
+        to_email: 'anishanchan567@gmail.com'
+      };
+
+      // Send email using EmailJS
+      const response = await emailjs.send(
+        'service_xlnq2up', // Service ID
+        'template_w0c30yn', // Template ID
+        templateParams,
+        'G2HvIHC1HQB5t4Rhi' // Public Key
+      );
+
+      console.log('EmailJS response:', response);
       
       // Show success message
       setIsSubmitted(true);
       toast({
         title: "Success!",
-        description: "Your default email client should open. Please send the email to complete your message.",
+        description: "Thank you! Your message has been sent successfully. I'll get back to you soon.",
       });
       
       // Reset form
@@ -97,10 +110,10 @@ const Contact = () => {
 
       console.log("Form submission completed successfully");
     } catch (error) {
-      console.error('Error processing form:', error);
+      console.error('Error sending email:', error);
       toast({
         title: "Error",
-        description: "There was an issue processing your request. Your email client should still open.",
+        description: "Failed to send message. Please try again later or contact me directly.",
         variant: "destructive",
       });
     } finally {
@@ -216,7 +229,7 @@ const Contact = () => {
                     {isSubmitting ? (
                       <>
                         <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-3"></div>
-                        Opening Email Client...
+                        Sending Message...
                       </>
                     ) : (
                       <>
@@ -229,13 +242,13 @@ const Contact = () => {
               ) : (
                 <div className="text-center max-w-2xl mx-auto">
                   <div className="p-12 bg-primary/10 rounded-3xl border border-primary/30 backdrop-blur-sm">
-                    <div className="text-6xl mb-6">📧</div>
+                    <div className="text-6xl mb-6">✨</div>
                     <h3 className="text-3xl font-semibold accent-gradient mb-6">
-                      Almost There!
+                      Thank You!
                     </h3>
                     <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                      Your email client should have opened with a pre-filled message to <strong>anishanchan567@gmail.com</strong>. 
-                      Please send the email to complete your message!
+                      Your message has been sent successfully to <strong>anishanchan567@gmail.com</strong>. 
+                      I'll get back to you soon!
                     </p>
                     <Button 
                       onClick={() => setIsSubmitted(false)}
