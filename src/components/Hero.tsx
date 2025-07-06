@@ -9,63 +9,65 @@ const Hero = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      <div className="absolute inset-0 gradient-bg" />
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden hero-section">
+      <div className="absolute inset-0 modern-gradient-bg" />
+      <div className="absolute inset-0 floating-particles" />
       
-      <div className="container mx-auto px-4 text-center z-10 max-w-6xl">
-        <div className="smooth-enter opacity-0">
-          <div className="mb-8 stagger-1 flex flex-col lg:flex-row items-center justify-center gap-12">
-            <div className="flex-shrink-0">
-              <div className="relative">
+      <div className="container mx-auto px-4 text-center z-10 max-w-7xl">
+        <div className="hero-content-enter opacity-0">
+          <div className="mb-12 hero-stagger-1 flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-20">
+            <div className="flex-shrink-0 profile-container">
+              <div className="relative profile-image-wrapper">
                 <img 
                   src="/lovable-uploads/6c5b8cd9-5fad-4d2b-b3db-c5a32e779d1b.png" 
                   alt="Anish - Tech Innovator and Sports Leader"
-                  className="w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full object-cover border-4 border-primary/30 shadow-2xl hover:scale-105 transition-transform duration-500"
+                  className="profile-image w-80 h-80 md:w-96 md:h-96 lg:w-[420px] lg:h-[420px] rounded-full object-cover"
                 />
-                <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-primary/20 to-transparent pointer-events-none"></div>
+                <div className="profile-glow-ring"></div>
+                <div className="profile-pulse-ring"></div>
               </div>
             </div>
             
-            <div className="flex-1 text-left lg:text-left">
-              <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 text-gradient leading-tight">
-                Hello, I'm Anish
+            <div className="flex-1 text-left lg:text-left hero-text-content">
+              <h1 className="hero-title text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-8 leading-tight">
+                Hello, I'm <span className="name-highlight">Anish</span>
               </h1>
               
-              <div className="mb-6 stagger-2">
-                <p className="text-2xl md:text-3xl lg:text-4xl font-light mb-4 accent-gradient">
-                  Tech Innovator | Sports Leader | Cybersecurity Explorer
+              <div className="mb-8 hero-stagger-2">
+                <p className="hero-subtitle text-xl md:text-2xl lg:text-3xl xl:text-4xl font-light mb-6">
+                  <span className="role-highlight">Tech Innovator</span> | <span className="role-highlight">Sports Leader</span> | <span className="role-highlight">Cybersecurity Explorer</span>
                 </p>
               </div>
               
-              <div className="mb-8 stagger-3">
-                <p className="text-lg md:text-xl text-muted-foreground font-light tracking-wide">
+              <div className="mb-10 hero-stagger-3">
+                <p className="hero-description text-base md:text-lg lg:text-xl text-muted-foreground font-light tracking-wide leading-relaxed">
                   MCA Student at NMAMIT • BCA Graduate from Mangalore University
                 </p>
               </div>
               
-              <div className="mb-12 stagger-4">
-                <p className="text-xl italic text-primary/90 font-medium tracking-wide">
+              <div className="mb-14 hero-stagger-4">
+                <p className="hero-quote text-lg md:text-xl lg:text-2xl italic font-medium tracking-wide">
                   "Curious mind, coding fingers, and a sportsman's heart — that's me."
                 </p>
               </div>
             </div>
           </div>
           
-          <div className="stagger-4">
+          <div className="hero-stagger-5">
             <Button 
               onClick={scrollToProjects}
               size="lg" 
-              className="text-lg px-10 py-6 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-2xl glow-button border-0 shadow-2xl"
+              className="modern-cta-button text-lg md:text-xl px-12 py-6 md:px-16 md:py-8 font-semibold rounded-2xl"
               title="Explore Projects & Story"
             >
               Discover My Journey
-              <ArrowDown className="ml-3 h-5 w-5 group-hover:translate-y-1 transition-transform" />
+              <ArrowDown className="ml-4 h-6 w-6 cta-arrow" />
             </Button>
           </div>
         </div>
       </div>
       
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-40 hero-fade-bottom pointer-events-none" />
     </section>
   );
 };
