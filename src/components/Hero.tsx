@@ -19,7 +19,7 @@ const Hero = () => {
             <div className="flex-shrink-0 profile-container">
               <div className="relative profile-image-wrapper">
                 <img 
-                  src="/lovable-uploads/6c5b8cd9-5fad-4d2b-b3db-c5a32e779d1b.png" 
+                  src="/lovable-uploads/b92c5a0d-c75b-4b97-b7da-9b4aed3e4c4a.png" 
                   alt="Anish - Tech Innovator and Sports Leader"
                   className="profile-image w-80 h-80 md:w-96 md:h-96 lg:w-[420px] lg:h-[420px] rounded-full object-cover"
                 />
