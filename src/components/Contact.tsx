@@ -161,7 +161,7 @@ const Contact = () => {
                         id="fullName"
                         name="fullName"
                         type="text"
-                        placeholder="Enter your full name"
+                        placeholder="Full Name"
                         value={formData.fullName}
                         onChange={handleInputChange}
                         required
@@ -178,7 +178,7 @@ const Contact = () => {
                         id="phone"
                         name="phone"
                         type="tel"
-                        placeholder="+1 (555) 123-4567"
+                        placeholder="Phone Number"
                         value={formData.phone}
                         onChange={handleInputChange}
                         required
@@ -196,7 +196,7 @@ const Contact = () => {
                       id="email"
                       name="email"
                       type="email"
-                      placeholder="your.email@example.com"
+                      placeholder="Email Address"
                       value={formData.email}
                       onChange={handleInputChange}
                       required
