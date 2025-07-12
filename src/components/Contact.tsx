@@ -161,7 +161,7 @@ const Contact = () => {
                         id="fullName"
                         name="fullName"
                         type="text"
-                        placeholder="Full Name"
+                        placeholder=""
                         value={formData.fullName}
                         onChange={handleInputChange}
                         required
@@ -178,7 +178,7 @@ const Contact = () => {
                         id="phone"
                         name="phone"
                         type="tel"
-                        placeholder="Phone Number"
+                        placeholder=""
                         value={formData.phone}
                         onChange={handleInputChange}
                         required
@@ -196,7 +196,7 @@ const Contact = () => {
                       id="email"
                       name="email"
                       type="email"
-                      placeholder="Email Address"
+                      placeholder=""
                       value={formData.email}
                       onChange={handleInputChange}
                       required
@@ -211,7 +211,7 @@ const Contact = () => {
                     <Textarea
                       id="message"
                       name="message"
-                      placeholder="Your message here..."
+                      placeholder=""
                       value={formData.message}
                       onChange={handleInputChange}
                       rows={6}
