@@ -8,17 +8,20 @@ const Projects = () => {
     {
       title: "AI Virtual Mouse",
       description: "An innovative AI-based system that allows users to control their computer cursor through intuitive hand gestures, eliminating the need for traditional mouse hardware.",
-      tags: ["AI", "Computer Vision", "Python", "OpenCV"]
+      tags: ["AI", "Computer Vision", "Python", "OpenCV"],
+      githubUrl: null
     },
     {
       title: "Village Bus Feedback System",
       description: "A full-stack web application built with Python Flask and MongoDB Atlas that improves rural public transportation by collecting real-time passenger feedback via QR code scanning. Features an admin dashboard for viewing feedback and complaints, deployed on Render.",
-      tags: ["Python", "Flask", "MongoDB", "Web Development", "Render", "QR Code"]
+      tags: ["Python", "Flask", "MongoDB", "Web Development", "Render", "QR Code"],
+      githubUrl: "https://github.com/Anish-2024/bus-feedback-using-QRcode"
     },
     {
       title: "Packet Sniffer",
       description: "A sophisticated cybersecurity tool designed to monitor, capture, and analyze network traffic, helping identify potential security threats and network anomalies.",
-      tags: ["Cybersecurity", "Network Security", "Python", "Wireshark"]
+      tags: ["Cybersecurity", "Network Security", "Python", "Wireshark"],
+      githubUrl: null
     }
   ];
 
@@ -33,7 +36,11 @@ const Projects = () => {
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {projects.map((project, index) => (
-            <Card key={index} className="hover:scale-105 transition-all duration-500 card-shadow bg-card/50 backdrop-blur-sm border-white/10 rounded-3xl group">
+            <Card 
+              key={index} 
+              className={`hover:scale-105 transition-all duration-500 card-shadow bg-card/50 backdrop-blur-sm border-white/10 rounded-3xl group ${project.githubUrl ? 'cursor-pointer' : ''}`}
+              onClick={() => project.githubUrl && window.open(project.githubUrl, '_blank')}
+            >
               <CardHeader className="p-8">
                 <CardTitle className="text-2xl text-foreground group-hover:text-primary transition-colors">
                   {project.title}
@@ -63,7 +70,7 @@ const Projects = () => {
             variant="outline" 
             size="lg"
             className="hover:bg-primary hover:text-primary-foreground transition-all duration-300 border-white/20 bg-transparent text-foreground px-8 py-4 rounded-2xl font-semibold glow-button"
-            onClick={() => window.open('https://github.com/Anish-2024', '_blank')}
+            onClick={() => window.open('https://github.com/Anish-2024/bus-feedback-using-QRcode', '_blank')}
           >
             <Github className="mr-3 h-5 w-5" />
             View More on GitHub
