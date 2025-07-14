@@ -12,8 +12,8 @@ const Projects = () => {
     },
     {
       title: "Village Bus Feedback System",
-      description: "A comprehensive web application that enables passengers to send feedback and complaints about bus services, improving public transportation through community input.",
-      tags: ["Web Development", "PHP", "MySQL", "Bootstrap"]
+      description: "A full-stack web application built with Python Flask and MongoDB Atlas that improves rural public transportation by collecting real-time passenger feedback via QR code scanning. Features an admin dashboard for viewing feedback and complaints, deployed on Render.",
+      tags: ["Python", "Flask", "MongoDB", "Web Development", "Render", "QR Code"]
     },
     {
       title: "Packet Sniffer",
