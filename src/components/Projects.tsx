@@ -70,7 +70,7 @@ const Projects = () => {
             variant="outline" 
             size="lg"
             className="hover:bg-primary hover:text-primary-foreground transition-all duration-300 border-white/20 bg-transparent text-foreground px-8 py-4 rounded-2xl font-semibold glow-button"
-            onClick={() => window.open('https://github.com/Anish-2024/bus-feedback-using-QRcode', '_blank')}
+            onClick={() => window.open('https://github.com/Anish-2024', '_blank')}
           >
             <Github className="mr-3 h-5 w-5" />
             View More on GitHub
