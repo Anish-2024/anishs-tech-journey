@@ -9,7 +9,7 @@ const Projects = () => {
       title: "AI Virtual Mouse",
       description: "An innovative AI-based system that allows users to control their computer cursor through intuitive hand gestures, eliminating the need for traditional mouse hardware.",
       tags: ["AI", "Computer Vision", "Python", "OpenCV"],
-      githubUrl: null
+      githubUrl: "https://github.com/Anish-2024/AI-virtual-mouse"
     },
     {
       title: "Village Bus Feedback System",
